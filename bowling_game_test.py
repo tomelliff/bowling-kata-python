@@ -23,30 +23,30 @@ class BowlingGameTest(unittest.TestCase):
         rolls = 20
         pins = 0
         self.roll_many(rolls, pins)
-        self.assertEquals(self.g.score(), 0)
+        self.assertEqual(self.g.score(), 0)
 
     def test_all_ones(self):
         rolls = 20
         pins = 1
         self.roll_many(rolls, pins)
-        self.assertEquals(self.g.score(), 20)
+        self.assertEqual(self.g.score(), 20)
 
     def test_one_spare(self):
         self.roll_spare()
         self.g.roll(3)
         self.roll_many(17, 0)
-        self.assertEquals(self.g.score(), 16)
+        self.assertEqual(self.g.score(), 16)
 
     def test_one_strike(self):
         self.roll_strike()
         self.g.roll(3)
         self.g.roll(4)
         self.roll_many(16, 0)
-        self.assertEquals(self.g.score(), 24)
+        self.assertEqual(self.g.score(), 24)
 
     def test_perfect_game(self):
         self.roll_many(12, 10)
-        self.assertEquals(self.g.score(), 300)
+        self.assertEqual(self.g.score(), 300)
 
 if __name__ == '__main__':
     unittest.main()
