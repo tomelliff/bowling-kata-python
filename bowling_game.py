@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
 class Game:
-
-  _rolls = [0] * 21
-  _current_roll = 0
+  def __init__(self):
+    self._rolls = [0] * 21
+    self._current_roll = 0
 
   def roll(self, pins):
     self._rolls[self._current_roll] = pins
