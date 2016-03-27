@@ -24,13 +24,14 @@ class BowlingGameTest(unittest.TestCase):
     pins = 1
     self.rollMany(rolls, pins)
     self.assertEquals(self.g.score(),20)
-"""
+
+  @unittest.skip("WIP: Spare/strike scoring not yet implemented")
   def test_one_spare(self):
     self.g.roll(5)
     self.g.roll(5) # Spare
     self.g.roll(3)
     self.rollMany(17, 0)
     self.assertEquals(self.g.score(),16)
-"""
+
 if __name__ == '__main__':
     unittest.main()
