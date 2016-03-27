@@ -9,27 +9,30 @@ class BowlingGameTest(unittest.TestCase):
   def setUp(self):
     self.g = Game()
 
-  def rollMany(self, rolls, pins):
+  def roll_many(self, rolls, pins):
     for roll in range(0, rolls):
       self.g.roll(pins)
+
+  def roll_spare(self):
+    self.g.roll(5)
+    self.g.roll(5)
 
   def test_gutter_game(self):
     rolls = 20
     pins = 0
-    self.rollMany(rolls, pins)
+    self.roll_many(rolls, pins)
     self.assertEquals(self.g.score(),0)
 
   def test_all_ones(self):
     rolls = 20
     pins = 1
-    self.rollMany(rolls, pins)
+    self.roll_many(rolls, pins)
     self.assertEquals(self.g.score(),20)
 
   def test_one_spare(self):
-    self.g.roll(5)
-    self.g.roll(5) # Spare
+    self.roll_spare()
     self.g.roll(3)
-    self.rollMany(17, 0)
+    self.roll_many(17, 0)
     self.assertEquals(self.g.score(),16)
 
 if __name__ == '__main__':
